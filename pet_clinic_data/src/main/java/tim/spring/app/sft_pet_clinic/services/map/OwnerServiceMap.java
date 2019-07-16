@@ -5,15 +5,15 @@ import tim.spring.app.sft_pet_clinic.services.CrudService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements CrudService<Owner,Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner,Integer> implements CrudService<Owner,Integer> {
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
     }
 
     @Override
-    public Owner findById(Long id) {
-        return null;
+    public Owner findById(Integer id) {
+        return super.findById(id);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements C
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(Integer id) {
         super.deleteById(id);
     }
 
