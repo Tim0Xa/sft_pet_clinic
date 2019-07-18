@@ -4,7 +4,7 @@ import tim.spring.app.sft_pet_clinic.model.Vet;
 
 import java.util.Set;
 
-public interface VetService extends CrudService<Vet, Long> {
+public interface VetService extends CrudService<Vet, Integer> {
 
     Set<Vet> findByLastName(String lastName);
 }

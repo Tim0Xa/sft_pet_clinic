@@ -1,11 +1,11 @@
 package tim.spring.app.sft_pet_clinic.services.map;
 
 import tim.spring.app.sft_pet_clinic.model.Pet;
-import tim.spring.app.sft_pet_clinic.services.CrudService;
+import tim.spring.app.sft_pet_clinic.services.PetService;
 
 import java.util.Set;
 
-public class PetMapService extends AbstractMapService<Pet,Integer> implements CrudService<Pet,Integer> {
+public class PetMapService extends AbstractMapService<Pet,Integer> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -30,4 +30,5 @@ public class PetMapService extends AbstractMapService<Pet,Integer> implements Cr
     public void delete(Pet obj) {
         super.delete(obj);
     }
+
 }
