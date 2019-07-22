@@ -1,5 +1,6 @@
 package tim.spring.app.sft_pet_clinic.controllers.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import tim.spring.app.sft_pet_clinic.model.Owner;
@@ -8,9 +9,6 @@ import tim.spring.app.sft_pet_clinic.model.Vet;
 import tim.spring.app.sft_pet_clinic.services.OwnerService;
 import tim.spring.app.sft_pet_clinic.services.PetService;
 import tim.spring.app.sft_pet_clinic.services.VetService;
-import tim.spring.app.sft_pet_clinic.services.map.OwnerMapService;
-import tim.spring.app.sft_pet_clinic.services.map.PetMapService;
-import tim.spring.app.sft_pet_clinic.services.map.VetMapService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -19,11 +17,11 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetService petService;
 
-
-    public DataLoader() {
-        ownerService = new OwnerMapService();
-        vetService = new VetMapService();
-        petService = new PetMapService();
+    @Autowired
+    public DataLoader(OwnerService ownerService, VetService vetService, PetService petService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
+        this.petService = petService;
     }
 
     @Override
@@ -79,7 +77,7 @@ public class DataLoader implements CommandLineRunner {
         owner2.setId(2);
         pet1.setOwner(owner2);
         pet1.setNickName("Buffy");
-        petService.save(pet2);
+         petService.save(pet2);
 
         Pet pet3 = new Pet();
         pet3.setId(3);
